@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Projekt
 {
-    public partial class Form1 : Form
+    public partial class prijava : Form
     {
-        public Form1()
+        public prijava()
         {
             InitializeComponent();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
