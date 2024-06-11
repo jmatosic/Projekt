@@ -62,6 +62,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "Skiperi";
             this.Text = "Skiperi";
+            this.Load += new System.EventHandler(this.Skiperi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
