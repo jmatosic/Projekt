@@ -32,5 +32,10 @@ namespace Projekt
             Skiperi skiperiForm = new Skiperi();
             skiperiForm.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

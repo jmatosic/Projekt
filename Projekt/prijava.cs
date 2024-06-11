@@ -17,9 +17,41 @@ namespace Projekt
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
+            if(textBox1.Text=="" || textBox2.Text=="")
+            {
+                MessageBox.Show("Unesite korisničko ime i lozinku!");
+            }
+            else if(textBox1.Text!="bilo kojjem kosinickom imenu iz baze podataka" || textBox2.Text!="bilo kojoj lozinci iz baze podataka")
+            {
+                MessageBox.Show("Neispravno korisničko ime ili lozinka!");
+            }
+            else
+            {
+                this.Hide();
+                Form1 form1Form = new Form1();
+                form1Form.ShowDialog();
+            }
+            
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(textBox3.Text=="admin123")
+            {
+                this.Hide();
+                registracija registracijaForm = new registracija();
+                registracijaForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Netočna šifra!");
+            }
+             
+        }
+
+
     }
 }
