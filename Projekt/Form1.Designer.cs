@@ -41,7 +41,7 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(201, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 55);
+            this.label1.Size = new System.Drawing.Size(407, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "New wave charting";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -55,6 +55,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Flota";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -65,6 +66,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Skiperi";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 

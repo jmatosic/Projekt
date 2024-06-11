@@ -17,14 +17,20 @@ namespace Projekt
             InitializeComponent();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Flota flotaForm = new Flota();  
+            flotaForm.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Skiperi skiperiForm = new Skiperi();
+            skiperiForm.ShowDialog();
         }
     }
 }
