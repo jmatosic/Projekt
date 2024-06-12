@@ -39,7 +39,7 @@ namespace Projekt
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             registracija registracijaForm = new registracija();
             registracijaForm.ShowDialog();
 
@@ -50,7 +50,7 @@ namespace Projekt
             
             if (textBox3.Text == "admin123")
             {
-                this.Hide();
+                this.Close();
                 admin adminForm = new admin();
                 adminForm.ShowDialog();
             }
@@ -60,5 +60,7 @@ namespace Projekt
             }
 
         }
+
+
     }
 }
