@@ -13,6 +13,7 @@ namespace Projekt
 {
     public partial class Skiperi : Form
     {
+        public static string odabrani="";
         public Skiperi()
         {
             InitializeComponent();
@@ -20,11 +21,21 @@ namespace Projekt
 
         private void Skiperi_Load(object sender, EventArgs e)
         {
-            StreamReader sr = new StreamReader("C:\\Users\\jani\\Desktop\\inf\\carter02\\Projekt\\Resources\\Skiperi.txt");
-            listBox1.Text = sr.ReadToEnd();
-            sr.Close();
+            listBox1.Items.Clear();
+            var fileLocation = File.ReadAllLines("C:\\Users\\jani\\Desktop\\inf\\carter02\\Projekt\\Resources\\Skiperi.txt");
+            List<string> lines = new List<string>(fileLocation);
+
+            for(int i= 0; i < lines.Count; i++)
+            {
+                listBox1.Items.Add(lines[i]);
+            }
         }
 
-
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            odabrani = listBox1.SelectedItem.ToString();
+            Form1 form1Form = new Form1();
+            form1Form.ShowDialog();
+        }
     }
 }

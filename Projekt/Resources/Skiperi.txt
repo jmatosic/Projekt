@@ -1,1 +1,1 @@
-Proba1, muško, 2
+Ime Prezime, muško, 33
