@@ -19,23 +19,27 @@ namespace Projekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text=="" || textBox2.Text=="" || textBox3.Text=="")
+
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
                 MessageBox.Show("Sva polja moraju bit popunjena!");
             }
-            else if(textBox2.Text!=textBox3.Text)
+            else if (textBox2.Text != textBox3.Text)
             {
                 MessageBox.Show("Šifra ne vrijedi!");
             }
-            else if(textBox1.Text=="bilo koje korisnicko ime iz Korisnici.txt")
+            else if (Prijave.imena().Contains(textBox1.Text))
             {
                 MessageBox.Show("Korisničko ime već postoji!");
             }
             else
             {
+                List<string> list = new List<string>();
+                list = Prijave.dobij_korisnike();
+                list.Add(textBox1.Text + ", " + textBox2.Text);
+                Prijave.zapisi("../../Resources/Korisnici.txt", list);
+
                 this.Close();
-                prijava prijavaForm = new prijava();
-                prijavaForm.ShowDialog();
 
             }
         }

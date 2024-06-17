@@ -12,8 +12,13 @@ namespace Projekt
 {
     public partial class Form1 : Form
     {
-        public Form1()
+
+        public string skiper { get; set; }
+        public string brod { get; set; }
+        public Form1(string skiper, string brod)
         {
+            this.skiper = skiper;
+            this.brod = brod;
             InitializeComponent();
         }
 
@@ -21,22 +26,38 @@ namespace Projekt
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            Flota flotaForm = new Flota(this.skiper);
             this.Close();
-            Flota flotaForm = new Flota();  
             flotaForm.ShowDialog();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            Skiperi skiperiForm = new Skiperi(this.brod);
             this.Close();
-            Skiperi skiperiForm = new Skiperi();
             skiperiForm.ShowDialog();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox1.Text = Skiperi.odabrani;
-            textBox2.Text = Flota.odabrani;
+            if (this.skiper != "")
+            {
+
+                textBox1.Text = this.skiper;
+
+
+            }
+            if (this.brod != "")
+            {
+
+                textBox2.Text = this.brod;
+
+            }
+
         }
 
 

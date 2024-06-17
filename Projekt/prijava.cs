@@ -20,26 +20,38 @@ namespace Projekt
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if(textBox1.Text=="" || textBox2.Text=="")
+            if (textBox1.Text == "" || textBox2.Text == "")
             {
                 MessageBox.Show("Unesite korisničko ime i lozinku!");
             }
-           // else if(textBox1.Text!="bilo kojjem kosinickom imenu iz baze podataka" || textBox2.Text!="bilo kojoj lozinci iz baze podataka")
+            // else if(textBox1.Text!="bilo kojjem kosinickom imenu iz baze podataka" || textBox2.Text!="bilo kojoj lozinci iz baze podataka")
             //{
-             //   MessageBox.Show("Neispravno korisničko ime ili lozinka!");
+            //   MessageBox.Show("Neispravno korisničko ime ili lozinka!");
             //}
             else
             {
-                this.Hide();
-                Form1 form1Form = new Form1();
-                form1Form.ShowDialog();
+                List<string> list = Prijave.dobij_korisnike();
+
+                foreach (var x in list)
+                {
+                    if (x == textBox1.Text + ", " + textBox2.Text)
+                    {
+                        this.Hide();
+                        Form1 form1Form = new Form1("", "");
+                        form1Form.ShowDialog();
+
+                    }
+
+                }
+                MessageBox.Show("Pogrešni podatci");
+
             }
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+
             registracija registracijaForm = new registracija();
             registracijaForm.ShowDialog();
 
@@ -47,12 +59,13 @@ namespace Projekt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             if (textBox3.Text == "admin123")
             {
-                this.Close();
+
                 admin adminForm = new admin();
                 adminForm.ShowDialog();
+
             }
             else
             {

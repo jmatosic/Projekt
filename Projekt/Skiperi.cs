@@ -13,29 +13,58 @@ namespace Projekt
 {
     public partial class Skiperi : Form
     {
-        public static string odabrani="";
-        public Skiperi()
+        public string brod { get; set; }
+        public static string odabrani = "";
+        public Skiperi(string brod)
         {
+            this.brod = brod;
             InitializeComponent();
         }
 
         private void Skiperi_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            var fileLocation = File.ReadAllLines("C:\\Users\\jani\\Desktop\\inf\\carter02\\Projekt\\Resources\\Skiperi.txt");
+            var fileLocation = File.ReadAllLines("../../Resources/Skiperi.txt");
             List<string> lines = new List<string>(fileLocation);
 
-            for(int i= 0; i < lines.Count; i++)
+            List<Tuple<string, int>> skiperi = new List<Tuple<string, int>>();
+            string v = ",";
+
+            for (int i = 0; i < lines.Count; i++)
             {
-                listBox1.Items.Add(lines[i]);
+
+                string uzeto = lines[i].Split(v.ToCharArray()).ToList()[2].Trim();
+                int novi = int.Parse(uzeto);
+                (string upisano, int upisani) = (lines[i], novi);
+                skiperi.Add(new Tuple<string, int>(upisano, upisani));
+
+
             }
+            lines = new List<string>();
+            skiperi = skiperi.OrderBy(x => x.Item2).Reverse().ToList();
+            foreach (var x in skiperi)
+            {
+
+                lines.Add(x.Item1);
+
+            }
+
+            listBox1.DataSource = lines;
+
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void listBox1_Click(object sender, EventArgs e)
         {
-            odabrani = listBox1.SelectedItem.ToString();
-            Form1 form1Form = new Form1();
-            form1Form.ShowDialog();
+            {
+                odabrani = listBox1.SelectedItem.ToString();
+
+                Form1 form1Form = new Form1(odabrani, this.brod);
+                this.Close();
+                form1Form.ShowDialog();
+
+            }
         }
     }
 }
