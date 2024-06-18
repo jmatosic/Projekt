@@ -13,9 +13,9 @@ namespace Projekt
 {
     public partial class Flota : Form
     {
-        public static string odabrani = "";
+        public string odabrani;
         public string skiper { get; set; }
-
+        public bool sortiraj_uzlaznjo;
         public Flota( string skiper )
         {
             this.skiper = skiper;
@@ -27,35 +27,11 @@ namespace Projekt
         private void Flota_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            var fileLocation = File.ReadAllLines("../../Resources/Flota.txt");
-            List<string> lines = new List<string>(fileLocation);
+            odabrani = null;
+            sortiraj_uzlaznjo = true;
+            izborSvi.Checked = true;
+            listBox1.DataSource = Prijave.ucitaj_brodove( odabrani ,"Flota.txt", sortiraj_uzlaznjo);
 
-            List<Tuple<string, int>> skiperi = new List<Tuple<string, int>>();
-            string v = ",";
-
-            for (int i = 0; i < lines.Count; i++)
-            {
-
-                if (lines[i] != null && lines[i] != "")
-                {
-                    string uzeto = lines[i].Split(v.ToCharArray()).ToList()[2].Trim();
-                    int novi = int.Parse(uzeto);
-                    (string upisano, int upisani) = (lines[i], novi);
-                    skiperi.Add(new Tuple<string, int>(upisano, upisani));
-                }
-
-
-            }
-            lines = new List<string>();
-            skiperi = skiperi.OrderBy(x => x.Item2).Reverse().ToList();
-            foreach (var x in skiperi)
-            {
-
-                lines.Add(x.Item1);
-
-            }
-
-            listBox1.DataSource = lines;
         }
 
         private void listBox1_Click(object sender, EventArgs e)
@@ -65,6 +41,57 @@ namespace Projekt
             Form1 form1Form = new Form1(this.skiper, odabrani);
             form1Form.ShowDialog();
             this.Close();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            odabrani = null;
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Flota.txt", sortiraj_uzlaznjo);
+
+
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            odabrani = " gliser";
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Flota.txt", sortiraj_uzlaznjo);
+
+
+        }
+
+        private void izborJedrilica_CheckedChanged(object sender, EventArgs e)
+        {
+            odabrani = " jedrilica";
+            listBox1.DataSource = Prijave.ucitaj_brodove( odabrani, "Flota.txt", sortiraj_uzlaznjo);
+
+ 
+
+        }
+
+        private void izborKatamaran_CheckedChanged(object sender, EventArgs e)
+        {
+            odabrani = " katamaran";
+
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Flota.txt", sortiraj_uzlaznjo);
+
+
+        }
+
+        private void cijene_uzlazno_Click(object sender, EventArgs e)
+        {
+            sortiraj_uzlaznjo = true;
+            listBox1.DataSource = Prijave.ucitaj_brodove( odabrani, "Flota.txt", sortiraj_uzlaznjo);
+
+        }
+
+        private void cijene_silazno_Click(object sender, EventArgs e)
+        {
+
+            sortiraj_uzlaznjo = false;
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Flota.txt", sortiraj_uzlaznjo);
+
         }
     }
 }

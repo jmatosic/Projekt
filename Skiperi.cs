@@ -14,7 +14,8 @@ namespace Projekt
     public partial class Skiperi : Form
     {
         public string brod { get; set; }
-        public static string odabrani = "";
+        public string odabrani;
+        public bool uzlazno;
         public Skiperi(string brod)
         {
             this.brod = brod;
@@ -24,34 +25,11 @@ namespace Projekt
         private void Skiperi_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            var fileLocation = File.ReadAllLines("../../Resources/Skiperi.txt");
-            List<string> lines = new List<string>(fileLocation);
+            uzlazno = false;
+            odabrani = null;
+            listBox1.DataSource = Prijave.ucitaj_brodove( odabrani, "Skiperi.txt", uzlazno );
+            sviIzbor.Checked = true;
 
-            List<Tuple<string, int>> skiperi = new List<Tuple<string, int>>();
-            string v = ",";
-
-            for (int i = 0; i < lines.Count; i++)
-            {
-
-                if (lines[i]!=null && lines[i] != "")
-                {
-                string uzeto = lines[i].Split(v.ToCharArray()).ToList()[2].Trim();
-                int novi = int.Parse(uzeto);
-                (string upisano, int upisani) = (lines[i], novi);
-                skiperi.Add(new Tuple<string, int>(upisano, upisani));
-                }
-
-            }
-            lines = new List<string>();
-            skiperi = skiperi.OrderBy(x => x.Item2).Reverse().ToList();
-            foreach (var x in skiperi)
-            {
-
-                lines.Add(x.Item1);
-
-            }
-
-            listBox1.DataSource = lines;
 
         }
 
@@ -68,6 +46,42 @@ namespace Projekt
                 form1Form.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void sviIzbor_CheckedChanged(object sender, EventArgs e)
+        {
+
+            odabrani = null;
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Skiperi.txt", uzlazno);
+
+        }
+
+        private void muskiIzbor_CheckedChanged(object sender, EventArgs e)
+        {
+            odabrani = " muško";
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Skiperi.txt", uzlazno);
+        }
+
+        private void zeneIzbor_CheckedChanged(object sender, EventArgs e)
+        {
+            odabrani = " žensko";
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Skiperi.txt", uzlazno);
+        }
+
+        private void godine_silazno_Click(object sender, EventArgs e)
+        {
+
+            uzlazno = false;
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Skiperi.txt", uzlazno);
+
+        }
+
+        private void godine_uzalzno_Click(object sender, EventArgs e)
+        {
+
+            uzlazno = true;
+            listBox1.DataSource = Prijave.ucitaj_brodove(odabrani, "Skiperi.txt", uzlazno);
+
         }
     }
 }
