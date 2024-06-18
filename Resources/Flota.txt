@@ -2,3 +2,5 @@ Brod1, gliser, 2000
 Brod2, jedrilica, 1500
 Brod3, katamaran, 350
 Miško, jedrilica, 1350
+Bavaria 12, jedrilica, 400
+

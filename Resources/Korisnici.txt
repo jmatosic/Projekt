@@ -10,3 +10,5 @@ c, c
 ad, ad
 Teo, draska
 asd, asd
+korisnik, 1
+korisnik1, 123
