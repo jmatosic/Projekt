@@ -39,6 +39,7 @@ namespace Projekt
                         this.Hide();
                         Form1 form1Form = new Form1( "", "" );
                         form1Form.ShowDialog();
+                        this.Close();
 
                     }
 

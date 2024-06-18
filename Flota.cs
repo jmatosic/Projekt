@@ -36,10 +36,13 @@ namespace Projekt
             for (int i = 0; i < lines.Count; i++)
             {
 
-                string uzeto = lines[i].Split(v.ToCharArray()).ToList()[2].Trim();
-                int novi = int.Parse(uzeto);
-                (string upisano, int upisani) = (lines[i], novi);
-                skiperi.Add(new Tuple<string, int>(upisano, upisani));
+                if (lines[i] != null && lines[i] != "")
+                {
+                    string uzeto = lines[i].Split(v.ToCharArray()).ToList()[2].Trim();
+                    int novi = int.Parse(uzeto);
+                    (string upisano, int upisani) = (lines[i], novi);
+                    skiperi.Add(new Tuple<string, int>(upisano, upisani));
+                }
 
 
             }
@@ -57,10 +60,11 @@ namespace Projekt
 
         private void listBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             odabrani = listBox1.SelectedItem.ToString();
             Form1 form1Form = new Form1(this.skiper, odabrani);
             form1Form.ShowDialog();
+            this.Close();
         }
     }
 }
