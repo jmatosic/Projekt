@@ -12,6 +12,62 @@ namespace Projekt
     public static class Prijave
     {
 
+        public static List<string> ucitaj_brodove(string filter, string filepath, bool uzlazno)
+        {
+
+            var fileLocation = File.ReadAllLines("../../Resources/" + filepath);
+            List<string> lines = new List<string>(fileLocation);
+
+            List<Tuple<string, int>> skiperi = new List<Tuple<string, int>>();
+            string v = ",";
+
+            for (int i = 0; i < lines.Count; i++)
+            {
+
+                if (lines[i] != null && lines[i] != "")
+                {
+                    string uzeto = lines[i].Split(v.ToCharArray()).ToList()[2].Trim();
+                    int novi = int.Parse(uzeto);
+                    (string upisano, int upisani) = (lines[i], novi);
+                    skiperi.Add(new Tuple<string, int>(upisano, upisani));
+                }
+
+            }
+            lines = new List<string>();
+            if (uzlazno)
+            {
+                skiperi = skiperi.OrderBy(x => x.Item2).ToList();
+            }
+            else {
+
+                skiperi = skiperi.OrderBy(x => x.Item2).Reverse().ToList();
+
+            }
+            
+            if (filter == null)
+            {
+                foreach (var x in skiperi)
+                {
+
+                    lines.Add(x.Item1);
+
+                }
+            }
+            else
+            {
+
+                foreach (var x in skiperi)
+                {
+                    if ( x.Item1.Split( v.ToCharArray() ).ToList()[1] == filter ) {
+                        lines.Add(x.Item1);
+                    }
+                }
+
+            }
+            return lines;
+
+        }
+
         public static List<string> dobij_korisnike()
         {
             List<string> korisnici = new List<string>();
