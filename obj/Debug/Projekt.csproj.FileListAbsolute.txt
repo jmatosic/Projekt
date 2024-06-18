@@ -1,0 +1,16 @@
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\bin\Debug\Projekt.exe.config
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\bin\Debug\Projekt.exe
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\bin\Debug\Projekt.pdb
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.csproj.AssemblyReference.cache
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.csproj.SuggestedBindingRedirects.cache
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.admin.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.Flota.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.Form1.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.prijava.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.Properties.Resources.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.registracija.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.Skiperi.resources
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.csproj.GenerateResource.cache
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.exe
+C:\Users\Frane\Source\Repos\jmatosic\Projekt\Projekt\obj\Debug\Projekt.pdb
